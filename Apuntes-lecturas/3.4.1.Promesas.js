@@ -85,3 +85,14 @@ registrarUsuario("Juan")
   .catch(error => {
     console.error(error);  // En caso de error en alguna de las promesas
   });
+
+//Ejemplo con error:
+async function obtenerDatos() {
+  try {
+    let respuesta = await fetch('https://api.inexistente.com'); // Esta URL no existe
+    let datos = await respuesta.json(); // Esto nunca se ejecutará
+    console.log(datos);
+  } catch (error) {
+    console.log('Hubo un problema:', error); // Aquí se maneja el error
+  }
+}
